@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 public class BookCardTest {
-    private final int daysArea = 3;
+    private final int daysArea = 5;
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
     private final LocalDate date = LocalDate.now();
     private final LocalDate acceptableDate = date.plusDays(daysArea);
@@ -27,12 +27,11 @@ public class BookCardTest {
         open("http://localhost:9999");
 
         $x("//input[@placeholder =\"Город\"]").setValue("Москва");
-//        $x("//input [@placeholder = \"Дата встречи\"]").click();
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.CONTROL + "A");
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.BACK_SPACE);
         $x("//input [@placeholder = \"Дата встречи\"]").setValue(finalDate);
         $x("//span[@data-test-id = \"name\"]//input").setValue("Макаров Иван");
-        $x("//span[@data-test-id = \"phone\"]//input").setValue("+7999999999");
+        $x("//span[@data-test-id = \"phone\"]//input").setValue("+79999999999");
         $x("//span[@class = \"checkbox__box\"]").click();
         $x("//*[text() = \"Забронировать\"]").click();
 
