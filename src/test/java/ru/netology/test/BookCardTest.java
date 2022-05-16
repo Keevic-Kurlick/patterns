@@ -27,7 +27,7 @@ public class BookCardTest {
         open("http://localhost:9999");
 
         $x("//input[@placeholder =\"Город\"]").setValue("Москва");
-        $x("//input [@placeholder = \"Дата встречи\"]").click();
+//        $x("//input [@placeholder = \"Дата встречи\"]").click();
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.CONTROL + "A");
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.BACK_SPACE);
         $x("//input [@placeholder = \"Дата встречи\"]").setValue(finalDate);
