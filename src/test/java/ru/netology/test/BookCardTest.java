@@ -33,7 +33,7 @@ public class BookCardTest {
         $x("//input [@placeholder = \"Дата встречи\"]").setValue(finalDate);
         $x("//span[@data-test-id = \"name\"]//input").setValue("Макаров Иван");
         $x("//span[@data-test-id = \"phone\"]//input").setValue("+79999999999");
-        $x("//span[@class = \"checkbox__box\"]").click();
+    //    $x("//span[@class = \"checkbox__box\"]").click();
         $x("//*[text() = \"Забронировать\"]").click();
 
         $(withText("Успешно!")).should(visible, Duration.ofSeconds(15));
