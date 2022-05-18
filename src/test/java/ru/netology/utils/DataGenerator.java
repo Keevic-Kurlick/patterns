@@ -10,7 +10,7 @@ import java.util.Locale;
 public class DataGenerator {
 
     @UtilityClass
-    public static class Registration {
+    public static class RegistrationInfoGenerator {
 
         public static RegistrationInfo generateByName(String locale) {
             Faker faker = new Faker(new Locale(locale));

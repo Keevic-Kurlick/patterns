@@ -28,7 +28,7 @@ public class BookCardTest {
     void shouldBookCardWithProperValuesDataGen() {
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
-        RegistrationInfo user = DataGenerator.Registration.generateByName("ru");
+        RegistrationInfo user = DataGenerator.RegistrationInfoGenerator.generateByName("ru");
 
         $x("//input[@placeholder =\"Город\"]").setValue("Москва");
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.CONTROL + "A");
@@ -47,7 +47,7 @@ public class BookCardTest {
     void shouldBookCardWithProperValuesSecondTimeGen() {
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
-        RegistrationInfo user = DataGenerator.Registration.generateByName("ru");
+        RegistrationInfo user = DataGenerator.RegistrationInfoGenerator.generateByName("ru");
         $x("//input[@placeholder =\"Город\"]").setValue("Москва");
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.CONTROL + "A");
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.BACK_SPACE);
