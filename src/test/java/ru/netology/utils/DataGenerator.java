@@ -18,20 +18,5 @@ public class DataGenerator {
                     faker.phoneNumber().phoneNumber());
         }
 
-        public static RegistrationInfo generateByName() {
-            Faker faker = new Faker(new Locale("ru"));
-            return new RegistrationInfo(faker.name().fullName(),
-                    faker.phoneNumber().phoneNumber());
-        }
-
-        private RegistrationInfo user = generateByName();
-
-        public String name() {
-            return user.getName();
-        }
-
-        public String phone() {
-            return user.getPhoneNumber();
-        }
     }
 }

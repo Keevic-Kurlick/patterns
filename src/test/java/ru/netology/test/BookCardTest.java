@@ -18,7 +18,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class BookCardTest {
 
-    public String generateDate(int daysPeriod) {
+    private String generateDate(int daysPeriod) {
         return (LocalDate.now()
                 .plusDays(daysPeriod)
                 .format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
