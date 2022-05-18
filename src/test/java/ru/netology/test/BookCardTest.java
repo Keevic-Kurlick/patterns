@@ -1,6 +1,7 @@
 package ru.netology.test;
 
 import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 import ru.netology.entities.RegistrationData;
@@ -24,10 +25,14 @@ public class BookCardTest {
                 .format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
     }
 
-    @Test
-    void shouldBookCardWithProperValuesDataGen() {
+    @BeforeEach
+    void setUp(){
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
+    }
+
+    @Test
+    void shouldBookCardWithProperValuesDataGen() {
         RegistrationData user = DataGenerator.RegistrationInfoGenerator.generateByName("ru");
 
         $x("//input[@placeholder =\"Город\"]").setValue("Москва");
@@ -45,8 +50,6 @@ public class BookCardTest {
 
     @Test
     void shouldBookCardWithProperValuesSecondTimeGen() {
-        Configuration.holdBrowserOpen = true;
-        open("http://localhost:9999");
         RegistrationData user = DataGenerator.RegistrationInfoGenerator.generateByName("ru");
         $x("//input[@placeholder =\"Город\"]").setValue("Москва");
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.CONTROL + "A");
@@ -65,9 +68,4 @@ public class BookCardTest {
         $$(".notification__content").filter(visible).last().should(ownText(generateDate(3)));
 
     }
-
-    public void print(String name, String phone){
-        System.out.println("Имя: " + name + " Номер: " + phone);
-    }
-
 }
