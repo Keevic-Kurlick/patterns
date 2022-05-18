@@ -2,7 +2,7 @@ package ru.netology.utils;
 
 import com.github.javafaker.Faker;
 import lombok.experimental.UtilityClass;
-import ru.netology.entities.RegistrationInfo;
+import ru.netology.entities.RegistrationData;
 
 import java.util.Locale;
 
@@ -12,9 +12,9 @@ public class DataGenerator {
     @UtilityClass
     public static class RegistrationInfoGenerator {
 
-        public static RegistrationInfo generateByName(String locale) {
+        public static RegistrationData generateByName(String locale) {
             Faker faker = new Faker(new Locale(locale));
-            return new RegistrationInfo(faker.name().fullName(),
+            return new RegistrationData(faker.name().fullName(),
                     faker.phoneNumber().phoneNumber());
         }
 

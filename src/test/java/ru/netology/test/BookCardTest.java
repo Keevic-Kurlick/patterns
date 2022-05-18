@@ -3,7 +3,7 @@ package ru.netology.test;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
-import ru.netology.entities.RegistrationInfo;
+import ru.netology.entities.RegistrationData;
 import ru.netology.utils.DataGenerator;
 
 import java.time.Duration;
@@ -28,7 +28,7 @@ public class BookCardTest {
     void shouldBookCardWithProperValuesDataGen() {
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
-        RegistrationInfo user = DataGenerator.RegistrationInfoGenerator.generateByName("ru");
+        RegistrationData user = DataGenerator.RegistrationInfoGenerator.generateByName("ru");
 
         $x("//input[@placeholder =\"Город\"]").setValue("Москва");
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.CONTROL + "A");
@@ -47,7 +47,7 @@ public class BookCardTest {
     void shouldBookCardWithProperValuesSecondTimeGen() {
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
-        RegistrationInfo user = DataGenerator.RegistrationInfoGenerator.generateByName("ru");
+        RegistrationData user = DataGenerator.RegistrationInfoGenerator.generateByName("ru");
         $x("//input[@placeholder =\"Город\"]").setValue("Москва");
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.CONTROL + "A");
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.BACK_SPACE);

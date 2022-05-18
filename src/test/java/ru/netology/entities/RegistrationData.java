@@ -3,11 +3,11 @@ package ru.netology.entities;
 import lombok.Data;
 
 @Data
-public class RegistrationInfo {
+public class RegistrationData {
     private final String name;
     private final String phoneNumber;
 
-    public RegistrationInfo(String name, String phoneNumber) {
+    public RegistrationData(String name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
