@@ -38,7 +38,7 @@ public class BookCardTest {
         $x("//input[@placeholder =\"Город\"]").setValue("Москва");
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.CONTROL + "A");
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.BACK_SPACE);
-        $x("//input [@placeholder = \"Дата встречи\"]").setValue(generateDate(3));
+        $x("//input [@placeholder = \"Дата встречи\"]").setValue(generateDate(2));
         $x("//span[@data-test-id = \"name\"]//input").setValue(user.getName());
         $x("//input[@placeholder = \"+7 000 000 00 00\"]").setValue(user.getPhoneNumber());
         $x("//span[@class = \"checkbox__box\"]").click();
