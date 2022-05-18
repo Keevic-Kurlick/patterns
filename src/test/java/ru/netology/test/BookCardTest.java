@@ -1,6 +1,7 @@
 package ru.netology.test;
 
 import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
@@ -18,6 +19,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 public class BookCardTest {
+    private RegistrationData user;
 
     private String generateDate(int daysPeriod) {
         return (LocalDate.now()
@@ -29,12 +31,16 @@ public class BookCardTest {
     void setUp(){
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
+        this.user = DataGenerator.RegistrationInfoGenerator.generateByName("ru");
+    }
+
+    @AfterEach
+    void tearDown() {
+        this.user = null;
     }
 
     @Test
     void shouldBookCardWithProperValuesDataGen() {
-        RegistrationData user = DataGenerator.RegistrationInfoGenerator.generateByName("ru");
-
         $x("//input[@placeholder =\"Город\"]").setValue("Москва");
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.CONTROL + "A");
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.BACK_SPACE);
@@ -50,7 +56,6 @@ public class BookCardTest {
 
     @Test
     void shouldBookCardWithProperValuesSecondTimeGen() {
-        RegistrationData user = DataGenerator.RegistrationInfoGenerator.generateByName("ru");
         $x("//input[@placeholder =\"Город\"]").setValue("Москва");
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.CONTROL + "A");
         $x("//input [@placeholder = \"Дата встречи\"]").sendKeys(Keys.BACK_SPACE);
