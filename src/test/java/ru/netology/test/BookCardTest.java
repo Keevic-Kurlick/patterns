@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import ru.netology.elements.Login;
 import ru.netology.entities.RegistrationData;
 import ru.netology.utils.DataGenerator;
-import ru.netology.utils.DateGenerator;
 
 import java.time.Duration;
 
@@ -25,7 +24,7 @@ public class BookCardTest {
     void setUp() {
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
-        this.user = DataGenerator.RegistrationInfoGenerator.generateByName("ru");
+        this.user = DataGenerator.RegistrationInfoGenerator.generateByName("ru", "Москва");
     }
 
     @AfterEach
@@ -38,7 +37,7 @@ public class BookCardTest {
         Login.login(user, 3);
 
         $(withText("Успешно!")).should(visible);
-        $(".notification__content").should(ownText(DateGenerator.addDaysToCurrentDate(3)));
+        $(".notification__content").should(ownText(DataGenerator.DateGenerator.addDaysToCurrentDate(3)));
     }
 
     @Test
@@ -46,11 +45,11 @@ public class BookCardTest {
         Login.login(user, 3);
 
         $(withText("Успешно!")).should(visible, Duration.ofSeconds(15));
-        $$(".notification__content").filter(visible).first().should(ownText(DateGenerator.addDaysToCurrentDate(3)));
+        $$(".notification__content").filter(visible).first().should(ownText(DataGenerator.DateGenerator.addDaysToCurrentDate(3)));
         $x("//*[text() = \"Запланировать\"]").click();
         $(withText("Необходимо подтверждение")).should(visible, Duration.ofSeconds(3));
         $(".notification__content button").click();
-        $$(".notification__content").filter(visible).last().should(ownText(DateGenerator.addDaysToCurrentDate(3)));
+        $$(".notification__content").filter(visible).last().should(ownText(DataGenerator.DateGenerator.addDaysToCurrentDate(3)));
 
     }
 }
