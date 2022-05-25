@@ -1,23 +1,12 @@
 package ru.netology.entities;
 
-import lombok.Data;
+import lombok.RequiredArgsConstructor;
+import lombok.Value;
 
-@Data
+@Value
+@RequiredArgsConstructor
 public class RegistrationData {
-    private final String name;
-    private final String phoneNumber;
-
-    public RegistrationData(String name, String phoneNumber) {
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
+    String name;
+    String phoneNumber;
+    String city;
 }
